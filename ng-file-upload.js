@@ -29,7 +29,7 @@ ngFileUpload.service('UploadBase', ['$http', '$q', '$timeout', function ($http, 
   var upload = this;
 
   this.isResumeSupported = function () {
-    return window.Blob && new Blob().slice;
+    return window.Blob && (Blob instanceof Function) && new Blob().slice;
   };
 
   var resumeSupported = this.isResumeSupported();
